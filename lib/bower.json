@@ -1,0 +1,20 @@
+{
+  "name": "qtic",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/GAylabea/QTic",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "jquery": "^3.0.0",
+    "angularfire": "^2.0.1"
+  }
+}
