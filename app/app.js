@@ -20,6 +20,11 @@ app.config(function($routeProvider) {
             controller: "LoginCtrl",
             resolve: {isAuth}
         }).
+        when("partials/qnew-view.html", {
+            templateUrl: "partials/qnew-view.html",
+            controller: "QNewCtrl",
+            resolve: {isAuth}
+        }).
         when("/login", {
             templateUrl: "partials/login.html",
             controller: "LoginCtrl"
