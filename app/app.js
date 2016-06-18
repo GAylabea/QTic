@@ -1,7 +1,6 @@
 "use strict";
-var app = angular.module("QTicApp", ["ngRoute"]); 
+var app = angular.module("QTicApp", ["ngRoute"])
   .constant("firebaseURL", "https://qtic.firebaseio.com/");
-
 // this function will be available whenever we want - also our html so we will put it in app instead of a LoginCtrl
 // it is a method to make sure the user is authenticated - remember authFactory is the AuthFactory js
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
@@ -16,6 +15,15 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 
 app.config(function($routeProvider) {
     $routeProvider.
+        when("/", {
+            templateUrl: "partials/qlist-view.html",
+            controller: "LoginCtrl",
+            resolve: {isAuth}
+        }).
+        when("partials/qnew-view.html", {
+            templateUrl: "partials/qnew-view.html",
+            controller: "QNewCtrl",
+            resolve: {isAuth}
         }).
         when("/login", {
             templateUrl: "partials/login.html",

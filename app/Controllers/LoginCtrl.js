@@ -1,9 +1,9 @@
  "use strict";
+console.log("hello");
 app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory) {
     let ref = new Firebase(firebaseURL);
 
     // $scope.hasUser = false;
-
     $scope.account = {
       email: "",
       password: ""
