@@ -38,7 +38,7 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
       .authenticate($scope.account)
       .then(()=> {
         // $scope.hasUser = true;
-        $location.path("/");
+        $location.path("/questions/list");
         // apply means you just add this in jquery because it makes things work - don't ask! this is the angular version=$apply
         $scope.$apply();
       })
