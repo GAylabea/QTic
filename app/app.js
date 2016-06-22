@@ -17,10 +17,15 @@ app.config(function($routeProvider) {
     $routeProvider.
         when("/", {
             templateUrl: "partials/qlist-view.html",
-            controller: "LoginCtrl",
+            controller: "QlistCtrl",
             resolve: {isAuth}
         }).
-        when("partials/qnew-view.html", {
+        when("/questions/list", {
+            templateUrl: "partials/qlist-view.html",
+            controller: "QListCtrl",
+            resolve: {isAuth}
+        }).
+        when("/questions/new", {
             templateUrl: "partials/qnew-view.html",
             controller: "QNewCtrl",
             resolve: {isAuth}
@@ -38,6 +43,8 @@ app.config(function($routeProvider) {
 
 app.run( ($location) =>{
     let qticRef = new Firebase("https://qtic.firebaseio.com/");
+    // This makes sure the user is totally logged out on refresh
+    qticRef.unauth()
 
 // onAuth is a Firebase method
     qticRef.onAuth(authData =>{

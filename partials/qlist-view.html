@@ -1,2 +1,18 @@
 <h1>This will be the qlist view</h1>
+<div class="questionlist" ng-repeat="thingy in questions[0]">
+<ul class="collection">
+<li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <span class="title">pastQs</span>
+        <p>{{thingy.date}}</p>
+         <!-- {{time}}<br> -->
+        <p>{{thingy.patronGroup}}</p>>
+         <p>{{thingy.timeSpent}}</p>
+        <p>{{thingy.referralNecessary}}</p>
+      <!-- <a href="#!" class="secondary-content"><i class="material-icons">?</i></a> -->
+      <!-- Delete Button -->
+     <!--  <a class="btn-floating btn-large waves-effect waves-light purple deleteQuestion" ng-click ="deleteQuestion(Info1.id)"><i class="material-icons">X</i></a> -->
+    </li>
+    </ul>
+    </div>
 
