@@ -1,4 +1,4 @@
-app.controller("QNewCtrl", function($scope, $location, questionStorage) {
+app.controller("QNewCtrl", function($scope, $http, $location, questionStorage) {
   console.log("hello");
   $scope.title="New Question";
   $scope.submitButtonText = "Add New Question";
@@ -11,8 +11,6 @@ app.controller("QNewCtrl", function($scope, $location, questionStorage) {
       uid: ""
   };
 
-// instead of doing the traditional promise, we are quickly using this function to add a new item and post the list to the DOM
-// (remember, itemStorage is in the itemListCtrl) - also, notice the $scope.newTask which attaches itself to the html
 $scope.addNewQuestion = function() {
     questionStorage.postNewQuestion($scope.newQuestion) 
       .then(function successCallback(response){

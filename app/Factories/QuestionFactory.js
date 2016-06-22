@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 app.factory("questionStorage", function($q, $http, firebaseURL, AuthFactory){
   var getQuestionList = function() {
     var questions = [];

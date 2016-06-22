@@ -17,7 +17,7 @@ app.config(function($routeProvider) {
     $routeProvider.
         when("/", {
             templateUrl: "partials/qlist-view.html",
-            controller: "LoginCtrl",
+            controller: "QlistCtrl",
             resolve: {isAuth}
         }).
         when("/questions/list", {
