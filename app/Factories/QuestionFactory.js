@@ -10,14 +10,14 @@ app.factory("questionStorage", function($q, $http, firebaseURL, AuthFactory){
           Object.keys(questionCollection).forEach(function(key) {
             questionCollection[key].id = key;
             questions.push(questionCollection[key]);
-          })
+          });
           resolve(questions);
         })
         .error(function(error) {
           reject(error);
         });
-    })
-  }
+    });
+  };
 
   var postNewQuestion = function(newQuestion) {
     console.log("hello"); 
@@ -38,9 +38,25 @@ app.factory("questionStorage", function($q, $http, firebaseURL, AuthFactory){
         .success(
           function(objectFromFirebase) {
             resolve(objectFromFirebase);
-          });
+          })
+        .error(function(error) {
+          reject(error);
+        });
   });
 }; 
 
-return {getQuestionList:getQuestionList, postNewQuestion:postNewQuestion}
-})
+var questionDelete = function(questionId) {
+  return $q(function(resolve, reject){
+    $http
+    .delete(firebaseURL + "qtic/" + questionId + ".json")
+    .success(function(objectFromFirebase){
+      resolve(objectFromFirebase)
+    })
+    .error(function(error) {
+          reject(error);
+        });
+  });
+}
+
+return {getQuestionList:getQuestionList, postNewQuestion:postNewQuestion, questionDelete:questionDelete};
+});
