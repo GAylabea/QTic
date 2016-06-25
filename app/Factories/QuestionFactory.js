@@ -22,13 +22,12 @@ app.factory("questionStorage", function($q, $http, firebaseURL, AuthFactory){
   var postNewQuestion = function(newQuestion) {
     console.log("hello"); 
     let user = AuthFactory.getUser();
-    console.log(user);
+    // console.log(user);
   return $q(function(resolve, reject){
     $http.post(
         firebaseURL + "qtic.json",
         JSON.stringify({
-          date: newQuestion.date,
-          // time: newQuestion.time,
+          label:newQuestion.label,
           patronGroup: newQuestion.patronGroup,
           timeSpent: newQuestion.timeSpent,
           referral: newQuestion.referral,
@@ -58,5 +57,36 @@ var questionDelete = function(questionId) {
   });
 }
 
-return {getQuestionList:getQuestionList, postNewQuestion:postNewQuestion, questionDelete:questionDelete};
-});
+var getSingleQuestion = function(questionId){
+    return $q(function(resolve, reject) {
+            $http.get(firebaseURL + "qtic/" + questionId + ".json")
+                .success(function(questionObject) {
+                    resolve(questionObject)
+                    })
+                .error(function(error) {
+                    reject(error);
+                })
+          });
+}
+
+var updateQuestion = function(questionId, newQuestion) {
+  return $q(function(resolve, reject){
+    $http.put(
+        firebaseURL + "qtic/" + questionId + ".json",
+        JSON.stringify({
+          label:newQuestion.label,
+          patronGroup: newQuestion.patronGroup,
+          timeSpent: newQuestion.timeSpent,
+          referral: newQuestion.referral,
+          uid: user.uid
+        })
+      )
+      .success(
+        function(objectFromFirebase){
+          resolve(objectFromFirebase);
+        });
+  });
+}
+return {getQuestionList:getQuestionList, postNewQuestion:postNewQuestion, questionDelete:questionDelete, getSingleQuestion:getSingleQuestion, updateQuestion:updateQuestion};
+})
+

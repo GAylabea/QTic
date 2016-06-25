@@ -1,16 +1,27 @@
-
   <div class="container">
   <div class="col s4">
+  </div>
+  <form>
+    <div class="input-field col s4">
+    <input id="Label" type="text" ng-model="newQuestion.label">
+      <label for="QLabel">QLabel</label>
+    </div>
+  </form>
+
+<!--   <form>
+  </div>
   <input type="date" class="datepicker">
 </div>
+</form> -->
+
 <!-- 
 <div class="timePicker">
   <h6>Time picker? </h6>
 </div>   -->
 
-<div class="patronGroup">
-  <h5>Patron Group</h5>
-  <form action="#">
+  <div class="patronGroup">
+<form action="#">
+    <h5>Patron Group</h5>
     <p>
       <input name="patronGroup" type="radio" id="faculty" value="faculty" ng-model="newQuestion.patronGroup.faculty"/>
       <label for="faculty">Faculty</label>
@@ -31,8 +42,8 @@
       <input class="with-gap" name="patronGroup" type="radio" id="community" value="community" ng-model="newQuestion.patronGroup.community" />
       <label for="community">Community member</label>
     </p>
-  </form>
-</div>
+</form>
+  </div>
 
 <div class=timeSpent>
   <h6>Time Spent</h6>
@@ -71,26 +82,3 @@
 </button>
 </div>
 
-
-<!-- <div class="input-field col s6">
-    <select>
-      <option value="" >Patron Type</option>
-      <option value="1">Faculty</option>
-      <option value="2">Staff</option>
-      <option value="3">Graduate Student</option>
-      <option value="2">Undergraduate Student </option>
-    </select>
-    <label>Patron type</label>
-  </div>
- -->
-<!-- <h5>time input??</h5>
-
-  <div class="input-field col s6">
-    <select>
-      <option value="" >Time spent</option>
-      <option value="1">0-10 minutes</option>
-      <option value="2">10-20 minutes</option>
-      <option value="3">20+ minutes</option>
-    </select>
-    <label>Time spent</label>
-  </div> -->

@@ -1,24 +1,23 @@
 <h6>QList view</h6>
 <div class="container">
-<div class="questionlist">
-<ul class="collection" ng-repeat="question in questions">
-<li class="collection-item avatar">
-      <i class="material-icons circle">folder</i>
-      <div class="title"><h3>pastQ</h3></div>
-        <p>{{question.date}}</p>
-         <!-- {{time}}<br> -->
-         <!-- an ng-repeat was necessary because the question options in Patron Group and Time Spent were both arrays -->
+  <div class="questionlist">
+    <ul class="collection" ng-repeat="question in questions">
+      <li class="collection-item avatar">
+        <i class="material-icons circle">folder</i>
+        <div class="title"><h3>pastQ</h3></div>
+        <div><a ng-href="#/questions/{{question.id}}">Question Label: {{question.label}}</a></p></div>
+        <!-- <p>{{question.date}}</p> -->
+        <!-- {{time}}<br> -->
+        <!-- an ng-repeat was necessary because the question options in Patron Group and Time Spent were both arrays -->
         <div ng-repeat="patronGroup in question.patronGroup"><p>Patron Group: {{patronGroup}}</p></div>
-         <div ng-repeat="timeSpent in question.timeSpent"><p>Time Spent with Patron: {{timeSpent}}</p></div>
-         <!-- Referral was tricky because Angular doesn't like to select yes or no without showing both.  -->
+        <div ng-repeat="timeSpent in question.timeSpent"><p>Time Spent with Patron: {{timeSpent}}</p></div>
+        <!-- Referral was tricky because Angular doesn't like to select yes or no without showing both.  -->
         <p>Referral Necessary? {{question.referral.yes}} {{question.referral.no}}</p>
-      <!-- Edit Button -->
-      <!-- <a class="btn-floating btn-small waves-effect waves-light purple secondary-content editQuestion" ng-click ="editQuestion(question?1.id)"><i class="material-icons">mode_edit</i></a> -->
-      <!-- Delete Button -->
-      <a class="btn-floating btn-small waves-effect waves-light purple deleteQuestion" ng-click ="deleteQuestion(question.id)"><i class="material-icons">delete</i></a>
-      
-    </li>
+        <!-- Delete Button -->
+        <a class="btn-floating btn-small waves-effect waves-light purple deleteQuestion" ng-click ="deleteQuestion(question.id)"><i class="material-icons">delete</i></a>
+      </li>
     </ul>
-    </div>
-    </div>
+  </div>
+</div>
 
+<div class ng-href="#questions/{{selectedQuestion.id}}">

@@ -3,8 +3,7 @@ app.controller("QNewCtrl", function($scope, $http, $location, questionStorage) {
   $scope.title="New Question";
   $scope.submitButtonText = "Add New Question";
   $scope.newQuestion = {
-      date: "",
-      // time: "",
+      label: "",
       patronGroup: "",
       timeSpent: "",
       referral: "",
@@ -20,6 +19,4 @@ $scope.addNewQuestion = function() {
     };
   }); 
 
- // $('.datepicker').pickadate({
- //    selectMonths: true, // Creates a dropdown to control month
- //    selectYears: 15 // Creates a dropdown of 15 years to control year
+// datepicker stuff here?
