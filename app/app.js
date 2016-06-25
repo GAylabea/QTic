@@ -17,7 +17,7 @@ app.config(function($routeProvider) {
     $routeProvider.
         when("/", {
             templateUrl: "partials/qlist-view.html",
-            controller: "QlistCtrl",
+            controller: "QListCtrl",
             resolve: {isAuth}
         }).
         when("/questions/list", {
@@ -30,6 +30,16 @@ app.config(function($routeProvider) {
             controller: "QNewCtrl",
             resolve: {isAuth}
         }).
+        when("/question/:questionId", {
+            templateUrl: "partials/qedit-view.html",
+            controller: "QSingleCtrl",
+            resolve: {isAuth}
+        }).
+        when("question/:questionId/edit", {
+            templateURL: "partials/qnew-view.html",
+            controller: "QEditCtrl", 
+            resolve: {isAuth}
+        }). 
         when("/login", {
             templateUrl: "partials/login.html",
             controller: "LoginCtrl"
