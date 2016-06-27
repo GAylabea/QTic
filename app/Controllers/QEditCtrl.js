@@ -2,8 +2,9 @@ app.controller("QEditCtrl", function($scope, $location, $routeParams, questionSt
   $scope.title="Edit Question";
   $scope.submitButtonText="Edit";
   $scope.newQuestion = {};
+console.log("hello"); 
 
-questionStorage.getSingleQuestion($routParams.questionId)
+questionStorage.getSingleQuestion($routeParams.questionId)
   .then(function successCallback(response){
     $scope.newQuestion=response;
   })

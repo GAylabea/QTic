@@ -27,6 +27,8 @@ app.factory("questionStorage", function($q, $http, firebaseURL, AuthFactory){
     $http.post(
         firebaseURL + "qtic.json",
         JSON.stringify({
+          date:newQuestion.date,
+          // time:newQuestion.time,
           label:newQuestion.label,
           patronGroup: newQuestion.patronGroup,
           timeSpent: newQuestion.timeSpent,
@@ -74,6 +76,8 @@ var updateQuestion = function(questionId, newQuestion) {
     $http.put(
         firebaseURL + "qtic/" + questionId + ".json",
         JSON.stringify({
+          date:newQuestion.date,
+          // time:newQuestion.time,
           label:newQuestion.label,
           patronGroup: newQuestion.patronGroup,
           timeSpent: newQuestion.timeSpent,

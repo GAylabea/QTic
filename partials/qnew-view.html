@@ -4,43 +4,43 @@
   <form>
     <div class="input-field col s4">
     <input id="Label" type="text" ng-model="newQuestion.label">
-      <label for="QLabel">QLabel</label>
+      <label for="QLabel" class="blue-text text-darken-4">QLabel</label>
     </div>
   </form>
 
-<!--   <form>
+  <form>
+   <div>
+    <input type="date" class="datepicker" ng-model="newQuestion.date"/>
   </div>
-  <input type="date" class="datepicker">
-</div>
-</form> -->
+</form>
 
-<!-- 
-<div class="timePicker">
-  <h6>Time picker? </h6>
-</div>   -->
+<!-- <div class="input-field">
+    <label for="timepicker">Time</label>
+    <input id="timepicker" class="timepicker" type="time" ng-model="newQuestion.time"/>
+</div> -->
 
   <div class="patronGroup">
 <form action="#">
-    <h5>Patron Group</h5>
+    <h6>Patron Group</h6>
     <p>
       <input name="patronGroup" type="radio" id="faculty" value="faculty" ng-model="newQuestion.patronGroup.faculty"/>
-      <label for="faculty">Faculty</label>
+      <label for="faculty" class="blue-text text-darken-4">Faculty</label>
     </p>
     <p>
       <input name="patronGroup" type="radio" id="staff" value="staff" ng-model="newQuestion.patronGroup.staff"/>
-      <label for="staff">Staff</label>
+      <label for="staff" class="blue-text text-darken-4">Staff</label>
     </p>
     <p>
       <input class="with-gap" name="patronGroup" type="radio" id="gradstudent" value="gradstudent" ng-model="newQuestion.patronGroup.gradstudent" />
-      <label for="gradstudent">Graduate student</label>
+      <label for="gradstudent" class="blue-text text-darken-4">Graduate student</label>
     </p>
     <p>
       <input class="with-gap" name="patronGroup" type="radio" id="undergrad" value="undergrad" ng-model="newQuestion.patronGroup.undergrad" />
-      <label for="undergrad">Undergraduate student</label>
+      <label for="undergrad" class="blue-text text-darken-4">Undergraduate student</label>
     </p>
     <p>
       <input class="with-gap" name="patronGroup" type="radio" id="community" value="community" ng-model="newQuestion.patronGroup.community" />
-      <label for="community">Community member</label>
+      <label for="community" class="blue-text text-darken-4">Community member</label>
     </p>
 </form>
   </div>
@@ -50,15 +50,15 @@
   <form action="#">
     <p>
       <input name="timeSpent" type="radio" id="time1" value="0-10 minutes" ng-model="newQuestion.timeSpent.time1" />
-      <label for="time1">0-10 minutes</label>
+      <label for="time1" class="blue-text text-darken-4">0-10 minutes</label>
     </p>
     <p>
       <input name="timeSpent" type="radio" id="time2" value="10-20 minutes" ng-model="newQuestion.timeSpent.time2"/>
-      <label for="time2">10-20 minutes</label>
+      <label for="time2" class="blue-text text-darken-4">10-20 minutes</label>
     </p>
     <p>
       <input class="timeSpent" name="timeSpent" type="radio" id="time3" value="more than 20 minutes" ng-model="newQuestion.timeSpent.time3" />
-      <label for="time3">20+ minutes</label>
+      <label for="time3" class="blue-text text-darken-4">20+ minutes</label>
     </p>
   </form>
 </div>
@@ -68,11 +68,11 @@
   <form action="#">
     <p>
       <input name="referral" type="radio" id="referyes" value="Yes" ng-model="newQuestion.referral.yes"/>
-      <label for="referyes">Yes</label>
+      <label for="referyes" class="blue-text text-darken-4">Yes</label>
     </p>
     <p>
       <input name="referral" type="radio" id="referno" value="No" ng-model="newQuestion.referral.no" />
-      <label for="referno">No</label>
+      <label for="referno" class="blue-text text-darken-4">No</label>
     </p>
   </form>
 </div>
