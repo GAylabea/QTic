@@ -30,13 +30,13 @@ app.config(function($routeProvider) {
             controller: "QNewCtrl",
             resolve: {isAuth}
         }).
-        when("/question/:questionId", {
+        when("/questions/:questionId", {
             templateUrl: "partials/qedit-view.html",
             controller: "QSingleCtrl",
             resolve: {isAuth}
         }).
-        when("question/:questionId/edit", {
-            templateURL: "partials/qnew-view.html",
+        when("/questions/:questionId/edit", {
+            templateUrl: "partials/qnew-view.html",
             controller: "QEditCtrl", 
             resolve: {isAuth}
         }). 

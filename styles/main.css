@@ -3,4 +3,8 @@ body {
 
 .logo {
   width: 150px;
-  height: 100px; }
+  height: 85px; 
+  border: solid #2962ff;
+  margin: 8px;
+}
+

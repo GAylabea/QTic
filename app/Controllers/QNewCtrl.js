@@ -3,6 +3,8 @@ app.controller("QNewCtrl", function($scope, $http, $location, questionStorage) {
   $scope.title="New Question";
   $scope.submitButtonText = "Add New Question";
   $scope.newQuestion = {
+      date: "",
+      // time: "",
       label: "",
       patronGroup: "",
       timeSpent: "",
@@ -19,4 +21,3 @@ $scope.addNewQuestion = function() {
     };
   }); 
 
-// datepicker stuff here?
