@@ -6,8 +6,10 @@
         <i class="material-icons circle">folder</i>
         <div class="title"><h3>pastQ</h3></div>
         <div><a ng-href="#/questions/{{question.id}}">Question Label: {{question.label}}</a></p></div>
-        <!-- <p>{{question.date | moment().format("MMM Do YY")}}</p> -->
-        <!-- <p>{{question.time}}</p> -->
+        <!-- <p>{{question.date | date}}</p> -->
+        <p>{{question.currentTime}}</p>
+        <!-- <p>{{question.date | moment().format('MMMM Do YYYY'}}</p> -->
+        <p>{{question.time}}</p>
         <!-- an ng-repeat was necessary because the question options in Patron Group and Time Spent were both arrays -->
         <div ng-repeat="patronGroup in question.patronGroup"><p>Patron Group: {{patronGroup}}</p></div>
         <div ng-repeat="timeSpent in question.timeSpent"><p>Time Spent with Patron: {{timeSpent}}</p></div>

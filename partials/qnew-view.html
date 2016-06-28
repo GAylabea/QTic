@@ -10,14 +10,21 @@
 
   <form>
    <div>
-    <input type="date" class="datepicker" ng-model="newQuestion.date"/>
+   <label for="inputCreated">Input date</label>
+    <input type="date" class="datepicker" ng-model="newQuestion.currentTime" container="" format="dd/mm/yyyy"/>
   </div>
 </form>
 
-<!-- <div class="input-field">
-    <label for="timepicker">Time</label>
-    <input id="timepicker" class="timepicker" type="time" ng-model="newQuestion.time"/>
-</div> -->
+<!--   <form>
+   <div>
+    <input type="date" class="datepicker" ng-model="newQuestion.date"/>
+  </div>
+</form> -->
+
+<div>
+  <input placeholder="00:00am" id="time" type="text" ng-model="newQuestion.time">
+  <label for="time" class="blue-text text-darken-4">Time:</label>
+</div>
 
   <div class="patronGroup">
 <form action="#">
