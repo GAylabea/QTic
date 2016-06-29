@@ -27,13 +27,13 @@ app.factory("questionStorage", function($q, $http, firebaseURL, AuthFactory){
     $http.post(
         firebaseURL + "qtic.json",
         JSON.stringify({
-          currentTime:newQuestion.currentTime,
+          currentDate:newQuestion.currentDate,
           time:newQuestion.time,
           label:newQuestion.label,
-          patronGroup: newQuestion.patronGroup,
-          timeSpent: newQuestion.timeSpent,
-          referral: newQuestion.referral,
-          uid: user.uid
+          patronGroup:newQuestion.patronGroup,
+          timeSpent:newQuestion.timeSpent,
+          referral:newQuestion.referral,
+          uid:user.uid
         })
       )
         .success(
@@ -51,38 +51,39 @@ var questionDelete = function(questionId) {
     $http
     .delete(firebaseURL + "qtic/" + questionId + ".json")
     .success(function(objectFromFirebase){
-      resolve(objectFromFirebase)
+      resolve(objectFromFirebase);
     })
     .error(function(error) {
           reject(error);
         });
   });
-}
+};
 
 var getSingleQuestion = function(questionId){
     return $q(function(resolve, reject) {
             $http.get(firebaseURL + "qtic/" + questionId + ".json")
                 .success(function(questionObject) {
-                    resolve(questionObject)
+                    resolve(questionObject);
                     })
                 .error(function(error) {
                     reject(error);
-                })
+                });
           });
-}
+};
 
 var updateQuestion = function(questionId, newQuestion) {
+   let user = AuthFactory.getUser();
   return $q(function(resolve, reject){
     $http.put(
         firebaseURL + "qtic/" + questionId + ".json",
         JSON.stringify({
-          currentTime:newQuestion.currentTime,
+          currentDate:newQuestion.currentDate,
           time:newQuestion.time,
           label:newQuestion.label,
-          patronGroup: newQuestion.patronGroup,
-          timeSpent: newQuestion.timeSpent,
-          referral: newQuestion.referral,
-          uid: user.uid
+          patronGroup:newQuestion.patronGroup,
+          timeSpent:newQuestion.timeSpent,
+          referral:newQuestion.referral,
+          uid:user.uid
         })
       )
       .success(
@@ -90,7 +91,7 @@ var updateQuestion = function(questionId, newQuestion) {
           resolve(objectFromFirebase);
         });
   });
-}
+};
 return {getQuestionList:getQuestionList, postNewQuestion:postNewQuestion, questionDelete:questionDelete, getSingleQuestion:getSingleQuestion, updateQuestion:updateQuestion};
-})
+});
 
