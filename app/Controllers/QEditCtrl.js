@@ -7,6 +7,8 @@ console.log("hello");
 questionStorage.getSingleQuestion($routeParams.questionId)
   .then(function successCallback(response){
     $scope.newQuestion=response;
+    var tempDate = new Date($scope.newQuestion.currentDate);
+    $scope.newQuestion.currentDate = tempDate;
   })
 
   $scope.addNewQuestion = function() {
