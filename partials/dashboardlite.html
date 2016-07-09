@@ -1,7 +1,3 @@
-<!-- Simple Card from Materialize -->
-  
-<!-- </div> -->
-
 <div class="row">
   <div class="col s2 offset-s2">
     <div class="card-panel light-blue darken-3">
@@ -14,11 +10,11 @@
   <div class="col s12 m5">
     <div class="card-panel light-blue darken-3">
       <span class="white-text">As of today, you've helped:</span>
-      <p><span class="white-text">### faculty members</span></p>
-      <p><span class="white-text">### staff members</span></p>
-      <p><span class="white-text">### Graduate students</span></p>
-      <p><span class="white-text">### undergraduate students</span></p>
-      <p><span class="white-text">### members from the community</span></p>
+      <p><span class="white-text">{{numberFaculty}} faculty members</span></p>
+      <p><span class="white-text">{{numberStaff}} staff members</span></p>
+      <p><span class="white-text">{{numberGrad}} Graduate students</span></p>
+      <p><span class="white-text">{{numberUnderGrad}} undergraduate students</span></p>
+      <p><span class="white-text">{{numberCommunity}} members from the community</span></p>
       </div>
     </div>
   </div>
@@ -26,26 +22,7 @@
   <div class="row">
   <div class="col s6 m5">
     <div class="card-panel light-blue darken-3">
-      <span class="white-text">You referred ## questions to other parts of the campus</span>
+      <span class="white-text">You referred {{numberReferals}} questions to other parts of the campus</span>
     </div>
   </div>
 </div>
-
-      <!-- button ng-click="getCount()">You've helped {{}} faculty members.</button> -->
-
-      <!-- <div> {{x.f}} ({{getCount(x.f)}})</div> -->
-  <!-- <div ng-repeat="question in questions">
-      <ul>
-      <li ng-repeat="faculty in patronGroup">
-      <span class="faculty">{{ $index + 1 }}</span>
-      </li>
-      </ul>
-  </div> -->
-
-      <!-- <div ng-repeat="question in questions" > -->
-        <!-- <div>{{ questions.length | number }}</div> -->
-        <!-- <div>Patron count: {{length}}</div> -->
-      <!-- we figured this out by using the inspect element right click and found the place on the object where the label was. Need to 
-      <! use this to do at lease SOME reporting to be at MVP try to get the patron count? date? maybe [0] or another ng-repeat??? Also, filtering would be nice!
-      Also need to set up routing - put the dashboard lite into the navbar!-->
-        <!-- <div>{{question.label}}</div> -->
