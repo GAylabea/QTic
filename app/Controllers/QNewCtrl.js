@@ -1,8 +1,7 @@
 app.controller("QNewCtrl", function($scope, $http, $location, questionStorage) {
-  // console.log("hello");
 var currentDate = new Date("dd/mm/yyyy");
 $scope.currentDate = currentDate;
-console.log("var currentTime", currentDate); 
+// console.log("var currentTime", currentDate); 
 
   $scope.title="New Question";
   $scope.submitButtonText = "Add New Question";

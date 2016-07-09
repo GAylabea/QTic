@@ -2,11 +2,12 @@ app.controller("QEditCtrl", function($scope, $location, $routeParams, questionSt
   $scope.title="Edit Question";
   $scope.submitButtonText="Edit";
   $scope.newQuestion = {};
-console.log("hello"); 
 
 questionStorage.getSingleQuestion($routeParams.questionId)
   .then(function successCallback(response){
     $scope.newQuestion=response;
+    // this is the way to set a new date onto the object/array - it would not translate otherwise for editing - note that the currentDate var 
+    // is defined in the QNewCtrl 
     var tempDate = new Date($scope.newQuestion.currentDate);
     $scope.newQuestion.currentDate = tempDate;
   })

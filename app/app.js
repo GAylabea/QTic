@@ -16,8 +16,13 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 app.config(function($routeProvider) {
     $routeProvider.
         when("/", {
-            templateUrl: "partials/qlist-view.html",
-            controller: "QListCtrl",
+            templateUrl: "partials/dashboardlite.html",
+            controller: "DashQCtrl",
+            resolve: {isAuth}
+        }).
+         when("/questions/dashboardlite", {
+            templateUrl: "partials/dashboardlite.html",
+            controller: "DashQCtrl",
             resolve: {isAuth}
         }).
         when("/questions/list", {
