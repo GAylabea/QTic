@@ -1,21 +1,18 @@
-<!-- QList view -->
 <div class="container">
   <div class="questionlist">
    <ul class="collection" ng-repeat="question in questions | orderBy:'-currentDate' "> 
-      <li class="collection-item avatar">
-        <i class="material-icons circle">folder</i>
-        <div class="title"><h3>pastQ</h3></div>
-        <div><p><a ng-href="#/questions/{{question.id}}">Question Notes: {{question.label}}</a></p></div>
-        <p>{{question.currentDate}}</p>
-        <p>{{question.time}}</p>
-        <div ><p>Patron Group: {{question.patronGroup}}</p></div>
-        <div ><p>Time Spent with Patron: {{question.timeSpent}}</p></div>
-        <!-- Referral was tricky because Angular doesn't like to select yes or no without showing both.  -->
-        <p>Referral Necessary? {{question.referral.yes}} {{question.referral.no}}</p>
-        <!-- Delete Button -->
-        <a class="btn-floating btn-small waves-effect waves-light purple deleteQuestion" ng-click ="deleteQuestion(question.id)"><i class="material-icons">delete</i></a>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <div class="title"><h3>pastQ</h3></div>
+      <div><p><a ng-href="#/questions/{{question.id}}">Question Notes: {{question.label}}</a></p></div>
+      <p>{{question.currentDate}}</p>
+      <p>{{question.time}}</p>
+      <div ><p>Patron Group: {{question.patronGroup}}</p></div>
+      <div ><p>Time Spent with Patron: {{question.timeSpent}}</p></div>
+      <p>Referral Necessary? {{question.referral.yes}} {{question.referral.no}}</p>
+      <a class="btn-floating btn-small waves-effect waves-light purple deleteQuestion" ng-click ="deleteQuestion(question.id)"><i class="material-icons">delete</i></a>
     </li>
-</ul> 
+  </ul> 
 </div>
 </div>
 

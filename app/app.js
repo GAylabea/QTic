@@ -1,8 +1,6 @@
 "use strict";
 var app = angular.module("QTicApp", ["ngRoute"])
   .constant("firebaseURL", "https://qtic.firebaseio.com/");
-// this function will be available whenever we want - also our html so we will put it in app instead of a LoginCtrl
-// it is a method to make sure the user is authenticated - remember authFactory is the AuthFactory js
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
     if(AuthFactory.isAuthenticated()) {
         console.log("user is authenticated, resolve route promise");
@@ -58,12 +56,9 @@ app.config(function($routeProvider) {
 
 app.run( ($location) =>{
     let qticRef = new Firebase("https://qtic.firebaseio.com/");
-    // This makes sure the user is totally logged out on refresh
     qticRef.unauth()
 
-// onAuth is a Firebase method
     qticRef.onAuth(authData =>{
-        // if you aren't an authorized user, you are sent back to login
         if(!authData) {
             $location.path("/login");
         }

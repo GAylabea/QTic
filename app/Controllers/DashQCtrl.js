@@ -1,43 +1,40 @@
 app.controller("DashQCtrl", function($scope, $location, $routeParams, questionStorage){
   $scope.questions = [];
   $scope.patronGroup = [];
+  $scope.numberFaculty = 0;
+  $scope.numberStaff = 0;
+  $scope.numberGrad = 0;
+  $scope.numberUnderGrad = 0;
+  $scope.numberCommunity = 0;
+  $scope.numberReferals = 0;
+
 
   questionStorage.getQuestionList().then(function(questionCollection){
-    // console.log("questionCollection from Promise", questionCollection); 
     $scope.questions = questionCollection;
+    questionCollection.forEach(function(question){
+      if(question.referral.yes){
+        $scope.numberReferals++;
+      }
+      switch (question.patronGroup) {
+        case "community":
+          $scope.numberCommunity++;
+          break;
+        case "faculty":
+          $scope.numberFaculty++;
+          break;
+        case "gradstudent":
+          $scope.numberGrad++;
+          break;
+        case "undergrad":
+          $scope.numberUnderGrad++;
+          break;
+        case "staff":
+          $scope.numberStaff++;
+          break;
+        default:
+          break;
+      }
+    })
   });
 });
-
-$scope.getCount = function (f) {
-    var fCount = fCount || 0;
-    for (var i = 0; i < $scope.questions.patronGroup.length; i++) {
-        if ($scope.questions[i].faculty == f) {
-            fCount++;
-        }
-    }
-    return fCount;
-    console.log("count", fCount);
-}
-
-
-// function Count(type) {
-//   return $("input[type=radio][value' " + type + " ']checked")length;
-// }
-    // var patronCount = question.patronGroup.length;
-    // console.log(patronCount);
-
-
-
-  // $scope.patronGroup = [];
-  // console.log("patron group", patronGroup);
-
-  // $scope.length = ' ';
-  // $scope.getLength = function() {
-  //   $scope.length = $scope.question.patronGroup.length;
-  //   console.log("array length =", $scope.length);
-  // };
-
-// Maybe put this as 
-// length of an array inside and object of objects or array of object
-// go thru all questions and get patronTypes - put the unique ones on an array and scope them in an array
 
