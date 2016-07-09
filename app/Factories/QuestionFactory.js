@@ -20,9 +20,8 @@ app.factory("questionStorage", function($q, $http, firebaseURL, AuthFactory){
   };
 
   var postNewQuestion = function(newQuestion) {
-    console.log("hello"); 
+    console.log("new", newQuestion);
     let user = AuthFactory.getUser();
-    // console.log(user);
   return $q(function(resolve, reject){
     $http.post(
         firebaseURL + "qtic.json",
@@ -77,7 +76,7 @@ var updateQuestion = function(questionId, newQuestion) {
     $http.put(
         firebaseURL + "qtic/" + questionId + ".json",
         JSON.stringify({
-          currentDate:newQuestion.currentDate,
+          currentDate:newQuestion.currentDate,  
           time:newQuestion.time,
           label:newQuestion.label,
           patronGroup:newQuestion.patronGroup,
@@ -89,6 +88,10 @@ var updateQuestion = function(questionId, newQuestion) {
       .success(
         function(objectFromFirebase){
           resolve(objectFromFirebase);
+          console.log("question Id", questionId);
+        })
+      .error(function(error) {
+          reject(error);
         });
   });
 };

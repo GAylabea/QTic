@@ -1,26 +1,21 @@
-<h6>QList view</h6> -->
+<!-- QList view -->
 <div class="container">
   <div class="questionlist">
-    <ul class="collection" ng-repeat="question in questions">
+   <ul class="collection" ng-repeat="question in questions | orderBy:'-currentDate' "> 
       <li class="collection-item avatar">
         <i class="material-icons circle">folder</i>
         <div class="title"><h3>pastQ</h3></div>
-        <div><a ng-href="#/questions/{{question.id}}">Question Label: {{question.label}}</a></p></div>
-        <!-- <p>{{question.currentDate | date}}</p> -->
+        <div><p><a ng-href="#/questions/{{question.id}}">Question Notes: {{question.label}}</a></p></div>
         <p>{{question.currentDate}}</p>
-        <!-- <p>{{question.date | moment().format('MMMM Do YYYY'}}</p> -->
         <p>{{question.time}}</p>
-        <!-- an ng-repeat was necessary because the question options in Patron Group and Time Spent were both arrays -->
-        <div ng-repeat="patronGroup in question.patronGroup"><p>Patron Group: {{patronGroup}}</p></div>
-        <div ng-repeat="timeSpent in question.timeSpent"><p>Time Spent with Patron: {{timeSpent}}</p></div>
+        <div ><p>Patron Group: {{question.patronGroup}}</p></div>
+        <div ><p>Time Spent with Patron: {{question.timeSpent}}</p></div>
         <!-- Referral was tricky because Angular doesn't like to select yes or no without showing both.  -->
         <p>Referral Necessary? {{question.referral.yes}} {{question.referral.no}}</p>
         <!-- Delete Button -->
         <a class="btn-floating btn-small waves-effect waves-light purple deleteQuestion" ng-click ="deleteQuestion(question.id)"><i class="material-icons">delete</i></a>
-        <!-- <a class="btn-floating btn-small waves-effect waves-light purple deleteQuestion" ng-click ="deleteQuestion(question.id)"><i class="material-icons">Edit</i></a> -->
-      </li>
-    </ul> 
-  </div>
+    </li>
+</ul> 
+</div>
 </div>
 
-<!-- <div class ng-href="#questions/{{selectedQuestion.id}}">
